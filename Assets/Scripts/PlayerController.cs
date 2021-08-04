@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+
     }
 
     /// <summary>
@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal,0.0f,moveVertical);
-        GetComponent<Rigidbody>().AddForce(movement*speed*Time.deltaTime);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
 
     }
     /// <summary>
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Trap"))
         {
-            
+
             AudioSource.PlayClipAtPoint(gameOverSound, transform.position);
             health--;
             Debug.Log("Health: " + health.ToString());
@@ -72,22 +72,9 @@ public class PlayerController : MonoBehaviour
         if (health == 0)
         {
             Debug.Log("Game Over!");
-            FadeToLevel(0);
-            SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex ) ;
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             health = 5;
             score = 0;
         }
-
-    }
-
-    public void FadeToLevel ( int levelIndex)
-    {
-        levelToLoad = levelIndex;
-        animator.SetTrigger("fadeOut");
-    }
-    public void OnFadeComplete()
-    {
-        SceneManager.LoadScene(levelToLoad);
     }
 }
