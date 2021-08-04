@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed = 15;
+    public float speed = 800.0f;
     private int score = 0;
     public int health = 5;
 
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
     }
 
     /// <summary>
@@ -24,22 +25,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        if (Input.GetKey("w") || Input.GetKey("up"))
-        {
-            rb.AddForce(0, 0, speed);
-        }
-        if (Input.GetKey("s") || Input.GetKey("down"))
-        {
-            rb.AddForce(0, 0, -speed);
-        }
-        if (Input.GetKey("a") || Input.GetKey("left"))
-        {
-            rb.AddForce(-speed, 0, 0);
-        }
-        if (Input.GetKey("d") || Input.GetKey("right"))
-        {
-            rb.AddForce(speed, 0, 0);
-        }
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(moveHorizontal,0.0f,moveVertical);
+        GetComponent<Rigidbody>().AddForce(movement*speed*Time.deltaTime);
 
     }
     /// <summary>
@@ -74,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if (health == 0)
         {
             Debug.Log("Game Over!");
+            SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex ) ;
             
             health = 5;
             score = 0;
