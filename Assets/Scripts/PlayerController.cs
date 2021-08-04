@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 800.0f;
     private int score = 0;
     public int health = 5;
+    public AudioClip winSound;
+    public AudioClip gameOverSound;
+    public AudioClip coinSound;
 
 
     /// <summary>
@@ -40,18 +43,22 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             score++;
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
             other.gameObject.SetActive(false);
             Debug.Log("Score: " + score.ToString());
         }
 
         if (other.gameObject.CompareTag("Trap"))
         {
+            
+            AudioSource.PlayClipAtPoint(gameOverSound, transform.position);
             health--;
             Debug.Log("Health: " + health.ToString());
         }
 
         if (other.gameObject.CompareTag("Goal"))
         {
+            AudioSource.PlayClipAtPoint(winSound, transform.position);
             Debug.Log("You win!");
         }
     }
