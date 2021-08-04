@@ -1247,7 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 284422360}
-  speed: 15
+  speed: 800
   health: 5
 --- !u!135 &284422356
 SphereCollider:
@@ -8109,30 +8109,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e9048d58e01be49a754fd646ac4d45, type: 3}
---- !u!1 &3139088047201316180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4511490430713483703, guid: 96e9048d58e01be49a754fd646ac4d45,
-    type: 3}
-  m_PrefabInstance: {fileID: 3139088047201316179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3139088047201316185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2214500360157549299, guid: 96e9048d58e01be49a754fd646ac4d45,
     type: 3}
   m_PrefabInstance: {fileID: 3139088047201316179}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3139088047201316186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3139088047201316180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2744f0c3afbd888448eb66c1ea8d858b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4700647804372002179
 PrefabInstance:
   m_ObjectHideFlags: 0
