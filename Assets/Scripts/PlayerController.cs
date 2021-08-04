@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip winSound;
     public AudioClip gameOverSound;
     public AudioClip coinSound;
+    public Animator animator;
+    private int levelToLoad;
 
 
     /// <summary>
@@ -70,11 +72,22 @@ public class PlayerController : MonoBehaviour
         if (health == 0)
         {
             Debug.Log("Game Over!");
+            FadeToLevel(0);
             SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex ) ;
             
             health = 5;
             score = 0;
         }
 
+    }
+
+    public void FadeToLevel ( int levelIndex)
+    {
+        levelToLoad = levelIndex;
+        animator.SetTrigger("fadeOut");
+    }
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelToLoad);
     }
 }
