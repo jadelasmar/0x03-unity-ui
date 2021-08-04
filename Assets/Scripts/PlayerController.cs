@@ -7,42 +7,77 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public float speed = 15;
     private int score = 0;
+    public int health = 5;
 
-    // Start is called before the first frame update
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
     void FixedUpdate()
     {
-        if(Input.GetKey("w") || Input.GetKey("up"))
+        if (Input.GetKey("w") || Input.GetKey("up"))
         {
-            rb.AddForce(0,0,speed);
+            rb.AddForce(0, 0, speed);
         }
-        if(Input.GetKey("s") || Input.GetKey("down"))
+        if (Input.GetKey("s") || Input.GetKey("down"))
         {
-            rb.AddForce(0,0,-speed);
+            rb.AddForce(0, 0, -speed);
         }
-        if(Input.GetKey("a") || Input.GetKey("left"))
+        if (Input.GetKey("a") || Input.GetKey("left"))
         {
-            rb.AddForce(-speed,0,0);
+            rb.AddForce(-speed, 0, 0);
         }
-        if(Input.GetKey("d") || Input.GetKey("right"))
+        if (Input.GetKey("d") || Input.GetKey("right"))
         {
-            rb.AddForce(speed,0,0);
+            rb.AddForce(speed, 0, 0);
         }
-        
-    }
 
+    }
+    /// <summary>
+    /// OnTriggerEnter is called when the Collider other enters the trigger.
+    /// </summary>
+    /// <param name="other">The other Collider involved in this collision.</param>
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("Pickup"))
         {
-           score++;
-           other.gameObject.SetActive(false);
-           Debug.Log("Score: "+score.ToString()); 
+            score++;
+            other.gameObject.SetActive(false);
+            Debug.Log("Score: " + score.ToString());
         }
+
+        if (other.gameObject.CompareTag("Trap"))
+        {
+            health--;
+            Debug.Log("Health: " + health.ToString());
+        }
+
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            Debug.Log("You win!");
+        }
+    }
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+            
+            health = 5;
+            score = 0;
+        }
+
     }
 }
