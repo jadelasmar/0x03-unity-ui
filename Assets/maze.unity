@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 284422360}
   speed: 800
-  health: 1
+  health: 5
   winSound: {fileID: 8300000, guid: d8d48273475e3cf458da98845d5f0af9, type: 3}
   gameOverSound: {fileID: 8300000, guid: 6c714e5abd0d3954684dc08ed099e394, type: 3}
   coinSound: {fileID: 8300000, guid: 453297584a30aad4696acdd437113a27, type: 3}
