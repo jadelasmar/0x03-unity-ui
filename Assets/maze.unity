@@ -1473,6 +1473,9 @@ MonoBehaviour:
   animator: {fileID: 1316133566}
   scoreText: {fileID: 2102100247}
   healthText: {fileID: 1694475855}
+  winLoseText: {fileID: 1701056817}
+  winLoseBG: {fileID: 1256709654}
+  winLose: {fileID: 1256709652}
 --- !u!135 &284422356
 SphereCollider:
   m_ObjectHideFlags: 0
