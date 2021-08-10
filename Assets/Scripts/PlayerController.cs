@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private int levelToLoad;
     public Text scoreText;
     public Text healthText;
-    
+
 
 
     /// <summary>
@@ -84,6 +84,10 @@ public class PlayerController : MonoBehaviour
 
     void SetScoreText()
     {
-        
+
+    }
+    void SetHealthText()
+    {
+
     }
 }
