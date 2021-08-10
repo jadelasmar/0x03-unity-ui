@@ -50,16 +50,17 @@ public class PlayerController : MonoBehaviour
         {
             score++;
             AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            SetScoreText();
             other.gameObject.SetActive(false);
-            Debug.Log("Score: " + score.ToString());
+            //Debug.Log("Score: " + score.ToString());
         }
 
         if (other.gameObject.CompareTag("Trap"))
         {
-
-            AudioSource.PlayClipAtPoint(gameOverSound, transform.position);
             health--;
-            Debug.Log("Health: " + health.ToString());
+            AudioSource.PlayClipAtPoint(gameOverSound, transform.position);
+            SetHealthText();
+            //Debug.Log("Health: " + health.ToString());
         }
 
         if (other.gameObject.CompareTag("Goal"))
@@ -84,10 +85,12 @@ public class PlayerController : MonoBehaviour
 
     void SetScoreText()
     {
+        scoreText.text="Score: "+score.ToString();
 
     }
     void SetHealthText()
     {
+        healthText.text="Health: "+health.ToString();
 
     }
 }
