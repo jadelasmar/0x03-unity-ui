@@ -9,4 +9,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void QuitMaze()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
 }
