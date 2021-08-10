@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip coinSound;
     public Animator animator;
     private int levelToLoad;
+    public Text scoreText;
+    public Text healthText;
+    
 
 
     /// <summary>
@@ -76,5 +80,10 @@ public class PlayerController : MonoBehaviour
             health = 5;
             score = 0;
         }
+    }
+
+    void SetScoreText()
+    {
+        
     }
 }
