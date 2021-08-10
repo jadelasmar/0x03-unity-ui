@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private int levelToLoad;
     public Text scoreText;
     public Text healthText;
+    public Text winLoseText;
+    public Image winLoseBG;
+    public GameObject winLose;
 
 
 
@@ -66,7 +69,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Goal"))
         {
             AudioSource.PlayClipAtPoint(winSound, transform.position);
-            Debug.Log("You win!");
+            StartCoroutine(LoadScene(3));
+            SetWinText();
+            //Debug.Log("You win!");
         }
     }
     /// <summary>
@@ -76,10 +81,11 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log("Game Over!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //Debug.Log("Game Over!");
+            StartCoroutine(LoadScene(3));
             health = 5;
             score = 0;
+            SetLoseText();
         }
     }
 
@@ -92,5 +98,24 @@ public class PlayerController : MonoBehaviour
     {
         healthText.text="Health: "+health.ToString();
 
+    }
+    void SetWinText()
+    {
+        winLose.SetActive(true);
+        winLoseText.text="You Win!";
+        winLoseText.color = Color.black;
+        winLoseBG.color = Color.green;
+    }
+    void SetLoseText()
+    {
+        winLose.SetActive(true);
+        winLoseText.text="Game Over!";
+        winLoseText.color = Color.white;
+        winLoseBG.color = Color.red;
+    }
+    IEnumerator LoadScene(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(0);
     }
 }
