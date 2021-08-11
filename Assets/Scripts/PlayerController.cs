@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip winSound;
     public AudioClip gameOverSound;
     public AudioClip coinSound;
-    public Animator animator;
     private int levelToLoad;
     public Text scoreText;
     public Text healthText;
