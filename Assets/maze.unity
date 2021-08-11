@@ -1470,7 +1470,6 @@ MonoBehaviour:
   winSound: {fileID: 8300000, guid: d8d48273475e3cf458da98845d5f0af9, type: 3}
   gameOverSound: {fileID: 8300000, guid: 6c714e5abd0d3954684dc08ed099e394, type: 3}
   coinSound: {fileID: 8300000, guid: 453297584a30aad4696acdd437113a27, type: 3}
-  animator: {fileID: 0}
   scoreText: {fileID: 2102100247}
   healthText: {fileID: 1694475855}
   winLoseText: {fileID: 1701056817}
@@ -8107,7 +8106,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -8132,13 +8131,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077158307}
-  m_LocalRotation: {x: 0.52720827, y: -0, z: -0, w: 0.8497361}
+  m_LocalRotation: {x: 0.58778524, y: 0, z: 0, w: 0.809017}
   m_LocalPosition: {x: 22, y: 26, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 63.634, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 72, y: 0, z: 0}
 --- !u!114 &2077158312
 MonoBehaviour:
   m_ObjectHideFlags: 0
